@@ -6,24 +6,13 @@ import { createTheme, CssBaseline } from "@mui/material";
 // NOTE: カラーなどをセットする
 const theme = createTheme({
   palette: {
-    background: {
-      default: "#fff",
-    },
     primary: {
-      main: "#C1A14E",
-      contrastText: "#fff",
+      main: '#3f51b5',
     },
-    text: {
-      primary: "#424242",
-      secondary: "#fff",
+    secondary: {
+      main: '#f50057',
     },
-    // secondary: {
-    //   main: "#fff",
-    // },
-    action: {
-      active: "#C1A14E",
-    },
-    divider: "#C1A14E"
+    divider: '#3f51b5'
   },
 });
 

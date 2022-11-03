@@ -2,18 +2,14 @@ import {
   Avatar,
   Box,
   Button,
-  Checkbox,
   Container,
   Divider,
-  FormControlLabel,
   Grid,
-  Link,
   Stack,
   TextField,
   Typography,
   useTheme,
 } from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Image from "next/image";
 
 export default function Login() {
@@ -31,7 +27,7 @@ export default function Login() {
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
-            <Image src="/avater.png"  layout="fill" sizes=""/>
+            <Image src="/avater.png" layout="fill" sizes="" />
           </Avatar>
         </Box>
         <Box
