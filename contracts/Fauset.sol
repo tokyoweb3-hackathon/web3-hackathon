@@ -4,7 +4,6 @@ pragma solidity ^0.8.4;
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Faucet {
-    // TODO: 実装したトークンに変更する
     ERC20 token;
 
     // faucet owner
