@@ -19,7 +19,12 @@ const FloatingActionButton = styled(Fab)<{ bottomNavHeight?: number }>`
   right: 16px;
 `;
 
-export const Layout = ({ children, fab, onFabClick }: LayoutProps) => {
+export const Layout = ({
+  children,
+  fab,
+  onFabClick,
+  ...props
+}: LayoutProps) => {
   return (
     <LayoutContainer>
       {children}
@@ -30,6 +35,7 @@ export const Layout = ({ children, fab, onFabClick }: LayoutProps) => {
           aria-label="request"
           size="medium"
           onClick={onFabClick}
+          {...props}
         >
           {fab}
         </FloatingActionButton>
