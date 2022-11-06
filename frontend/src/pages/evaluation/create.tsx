@@ -1,8 +1,14 @@
-import faucetAbi from '../../../artifacts/contracts/Faucet.sol/Faucet.json' assert { type: "json" };
-import Button from '@mui/material/Button';
+import {
+  Container,
+  Paper,
+  Typography,
+  TextField
+} from "@mui/material";
+import faucetAbi from '../../../../artifacts/contracts/Faucet.sol/Faucet.json' assert { type: "json" };
+import { Layout } from "../../../layout/Layout";
 import { ethers, providers } from "ethers"
 import { BaseProvider } from '@metamask/providers';
-import { ContactSupportOutlined } from '@mui/icons-material';
+import { grey } from '@mui/material/colors';
 const Web3 = require('web3')
 const web3 = new Web3(
   new Web3.providers.HttpProvider(
@@ -46,6 +52,26 @@ const handleClick = async () => {
   console.log(res, '総数')
 }
 
-export default function Evaluation() {
-  return <Button variant="outlined" onClick={handleClick}>faucet</Button>;
+export default function createEvaluation() {
+  const color = grey[200]
+  return (
+     <Layout>
+      <Container component="main" maxWidth="xs" sx={{ pr: 4, pl: 4, pt: 15 }}>
+        <Paper elevation={1} sx={{ mt: 4, p: 2 }}>
+          <Typography variant="h6" component="p" sx={{
+            }}>
+            マネージメント
+          </Typography>
+
+        <TextField
+            sx={{
+              bgcolor: color,
+            }}
+            fullWidth
+            defaultValue="Default Value"
+          />
+        </Paper>
+      </Container>
+    </Layout>
+  );
 }
