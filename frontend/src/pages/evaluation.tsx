@@ -23,8 +23,8 @@ export default function Evaluation() {
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window === 'undefined') {
-      return
+    if (typeof window === "undefined") {
+      return;
     }
 
     const init = async () => {
@@ -55,7 +55,7 @@ export default function Evaluation() {
     init();
   }, []);
 
-  function TabPanel(props: TabPanelProps) {
+  const TabPanel = (props: TabPanelProps) => {
     const { children, value, index, ...other } = props;
     return (
       <div
@@ -70,7 +70,7 @@ export default function Evaluation() {
     );
   }
 
-  function a11yProps(index: number) {
+  const a11yProps = (index: number) => {
     return {
       id: `simple-tab-${index}`,
       "aria-controls": `simple-tabpanel-${index}`,
@@ -89,13 +89,11 @@ export default function Evaluation() {
     <Layout
       fab={
         <>
-          <>
-            <PieChartIcon
-              sx={{ mr: 2 }}
-              onClick={() => onLink("/createAddress")}
-            />
-            評価設定
-          </>
+          <PieChartIcon
+            sx={{ mr: 2 }}
+            onClick={() => onLink("/createAddress")}
+          />
+          評価設定
         </>
       }
     >

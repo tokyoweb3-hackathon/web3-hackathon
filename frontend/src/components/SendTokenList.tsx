@@ -1,8 +1,5 @@
 import { Container, Paper, Typography, List } from "@mui/material";
-import PieChartIcon from "@mui/icons-material/PieChart";
 import { UserHistoryListItem } from "./UserHistoryListItem";
-import { memo } from "react";
-import { useRouter } from "next/router";
 
 export const SendTokenList: React.FC<{}> = () => {
   return (
