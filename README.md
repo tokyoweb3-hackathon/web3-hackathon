@@ -10,17 +10,25 @@
 ## tech stacks
 
 スマートコントラクト
+
 hardhat 2.12.1
+
 solidty 0.8.9
 
 フロントエンド
+
 react 　 18.2.0
+
 next.js 　 13.0.2
+
 web3auth 　 2.1.3
+
 firebase 　 9.13.0
+
 mui/material 　 5.10.10
 
 デザイン
+
 Figma
 
 ## 使用した Blockchain
