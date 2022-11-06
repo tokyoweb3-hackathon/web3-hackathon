@@ -5,7 +5,7 @@ import PieChartIcon from "@mui/icons-material/PieChart";
 import { EvaluationReport } from "../components/EvaluationReport";
 import { SendTokenList } from "../components/SendTokenList";
 import { useRouter } from "next/router";
-const EvalAddressContract = require("../../../artifacts/contracts/EvalAddressContract.sol/EvalAddressContract.json");
+import EvalAddressContract from "../artifacts/contracts/EvalAddressContract.json";
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
 
@@ -23,6 +23,10 @@ export default function Evaluation() {
   const router = useRouter();
 
   useEffect(() => {
+    if (typeof window === 'undefined') {
+      return
+    }
+
     const init = async () => {
       try {
         const web3 = new Web3(
@@ -116,10 +120,4 @@ export default function Evaluation() {
       </Container>
     </Layout>
   );
-}
-
-export async function getServerSideProps() {
-  return {
-    props: {},
-  };
 }
