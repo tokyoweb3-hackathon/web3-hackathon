@@ -13,7 +13,7 @@ contract EvalAddressContract {
   }
   struct GeneralToken {
     uint256 evalAddressId;   // 評価アドレスID
-    uint256 amount;           // EVAトークンの数
+    uint256 amount;          // EVAトークンの数
     string message;          // メッセージ
     uint256 sended_at;       // 送信日時
   }
@@ -95,6 +95,7 @@ contract EvalAddressContract {
     sendedTokens[_from].push(generalToken);
     receivedTokens[_to].push(generalToken);
     addTotalAmount(_to, _evalAddressId, generalToken.amount);
+    
   }
 
   /**
