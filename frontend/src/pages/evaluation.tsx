@@ -14,11 +14,6 @@ import EvalAddressContract  from '../../../artifacts/contracts/EvalAddressContra
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
 
-const web3 = new Web3(new Web3.providers.HttpProvider(`http://127.0.0.1:8545`));
-const ContractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
-const ABI = EvalAddressContract.abi as any as AbiItem;
-const contract = new web3.eth.Contract(ABI, ContractAddress);
-
 export default function Evaluation() {
   const [ value, setValue ] = useState(0);
   const [ contract, setContract] = useState<Web3 | null>(null);
