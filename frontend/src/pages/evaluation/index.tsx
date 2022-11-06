@@ -6,11 +6,12 @@ import {
   Typography
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { Layout } from "../../layout/Layout";
+import { Layout } from "../../../layout/Layout";
 import PieChartIcon from "@mui/icons-material/PieChart";
-import { EvaluationReport } from "../components/EvaluationReport";
+import { EvaluationReport } from "../../components/EvaluationReport";
+import { SendTokenList } from "../../components/SendTokenList";
 import { useRouter } from "next/router";
-import EvalAddressContract  from '../../../artifacts/contracts/EvalAddressContract.sol/EvalAddressContract.json' assert { type: "json" };
+import EvalAddressContract  from '../../../../artifacts/contracts/EvalAddressContract.sol/EvalAddressContract.json' assert { type: "json" };
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
 
@@ -83,8 +84,10 @@ export default function Evaluation() {
       <Layout
         fab={
           <>
-            <PieChartIcon sx={{ mr: 1 }} onClick={() => onLink("/createAddress")} />
-            評価設定
+            <>
+            <PieChartIcon sx={{ mr: 2 }} onClick={() => onLink("/createAddress")} />
+              評価設定
+            </>
           </>
         }
       >
@@ -101,7 +104,7 @@ export default function Evaluation() {
             />
           </TabPanel>
           <TabPanel value={value} index={1}>
-            Item Two
+            <SendTokenList/>
           </TabPanel>
         </Container>
       </Layout>
