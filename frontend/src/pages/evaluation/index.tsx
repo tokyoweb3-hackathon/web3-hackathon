@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 
 export default function Evaluation() {
   const router = useRouter();
-  const onLink = () => router.push('/selectevaluation');
+  const onLink = () => router.push('/select');
   return (
     <Layout fab={
         <>
