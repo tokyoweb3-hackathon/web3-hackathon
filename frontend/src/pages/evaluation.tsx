@@ -5,7 +5,7 @@ import PieChartIcon from "@mui/icons-material/PieChart";
 import { EvaluationReport } from "../components/EvaluationReport";
 import { SendTokenList } from "../components/SendTokenList";
 import { useRouter } from "next/router";
-import EvalAddressContract from "../../../artifacts/contracts/EvalAddressContract.sol/EvalAddressContract.json" assert { type: "json" };
+const EvalAddressContract = require("../../../artifacts/contracts/EvalAddressContract.sol/EvalAddressContract.json");
 import Web3 from "web3";
 import { AbiItem } from "web3-utils";
 
