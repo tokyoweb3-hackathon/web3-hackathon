@@ -16,5 +16,5 @@ export type { EvalAddressContract } from "./contracts/EvalAddressContract";
 export { EvalAddressContract__factory } from "./factories/contracts/EvalAddressContract__factory";
 export type { EvaluationVisualizationToken } from "./contracts/EvaluationVisualizationCoin.sol/EvaluationVisualizationToken";
 export { EvaluationVisualizationToken__factory } from "./factories/contracts/EvaluationVisualizationCoin.sol/EvaluationVisualizationToken__factory";
-export type { Faucet } from "./contracts/Fauset.sol/Faucet";
-export { Faucet__factory } from "./factories/contracts/Fauset.sol/Faucet__factory";
+export type { Faucet } from "./contracts/Faucet";
+export { Faucet__factory } from "./factories/contracts/Faucet__factory";

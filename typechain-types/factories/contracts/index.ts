@@ -2,5 +2,5 @@
 /* tslint:disable */
 /* eslint-disable */
 export * as evaluationVisualizationCoinSol from "./EvaluationVisualizationCoin.sol";
-export * as fausetSol from "./Fauset.sol";
 export { EvalAddressContract__factory } from "./EvalAddressContract__factory";
+export { Faucet__factory } from "./Faucet__factory";

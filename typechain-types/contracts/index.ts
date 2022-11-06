@@ -3,6 +3,5 @@
 /* eslint-disable */
 import type * as evaluationVisualizationCoinSol from "./EvaluationVisualizationCoin.sol";
 export type { evaluationVisualizationCoinSol };
-import type * as fausetSol from "./Fauset.sol";
-export type { fausetSol };
 export type { EvalAddressContract } from "./EvalAddressContract";
+export type { Faucet } from "./Faucet";

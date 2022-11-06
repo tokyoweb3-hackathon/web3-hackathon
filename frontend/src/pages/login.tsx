@@ -14,7 +14,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Web3Auth } from "@web3auth/modal";
 import { CHAIN_NAMESPACES, SafeEventEmitterProvider } from "@web3auth/base";
-import RPC from "./web3RPC";
+import RPC from "../composable/web3RPC";
 
 const clientId = "BJJyFNk-w8dA0QtUTvVUPQyaYwNqK4mUxtbOwFsY9NPsMex5Fj-xxrFyA6iP2Fnc2FLn46_wCMhr3eZISGpldYU";
 
@@ -34,7 +34,7 @@ export default function Login() {
         },
       });
 
-          setWeb3auth(web3auth);
+        setWeb3auth(web3auth);
 
       await web3auth.initModal();if (web3auth.provider) {
             setProvider(web3auth.provider);

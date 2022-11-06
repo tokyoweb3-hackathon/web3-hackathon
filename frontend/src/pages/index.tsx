@@ -6,7 +6,7 @@ import dynamic from "next/dynamic";
 
 const App = dynamic(
   () => {
-    return import("./App");
+    return import("./_app");
   },
   { ssr: false }
 );
