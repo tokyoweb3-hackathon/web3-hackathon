@@ -1,11 +1,10 @@
-// SPDX-License-Identifier: UNLISCENSED
-pragma solidity ^0.8.4;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract Faucet {
     ERC20 token;
-
     // faucet owner
     address faucetOwner;
     // TODO: 単位は調整する
