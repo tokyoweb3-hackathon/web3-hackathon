@@ -11,7 +11,7 @@ export const UserHistoryListItem: React.FC<{
   avatarUrl: string;
   date: string;
   text: string;
-}> = memo(({ avatarUrl, date, text }) => {
+}> = ({ avatarUrl, date, text }) => {
   return (
     <>
       <ListItem alignItems="flex-start">
@@ -36,4 +36,4 @@ export const UserHistoryListItem: React.FC<{
       <Divider variant="inset" component="li" sx={{ borderColor: "#E0E0E0" }} />
     </>
   );
-});
+};

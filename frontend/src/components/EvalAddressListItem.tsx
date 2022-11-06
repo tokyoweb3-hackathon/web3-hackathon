@@ -2,12 +2,11 @@ import {
   Box,
   Typography
 } from "@mui/material";
-import { memo } from "react";
 
 export const EvalAddressListItem: React.FC<{
   name: string;
   total: string;
-}> = memo(({ name, total }) => {
+}> = ({ name, total }) => {
   return (
     <>
       <Box
@@ -27,4 +26,4 @@ export const EvalAddressListItem: React.FC<{
       </Box>
     </>
   );
-});
+}

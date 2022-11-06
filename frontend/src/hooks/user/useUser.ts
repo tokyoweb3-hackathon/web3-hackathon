@@ -77,7 +77,7 @@ export const useUser = (init: { initAccount?: string }) => {
 
       setUser(data);
     });
-  }, [init.initAccount]);
+  }, [init.initAccount, getUser, setUser]);
 
   return {
     getUser,

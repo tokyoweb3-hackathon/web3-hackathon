@@ -89,7 +89,7 @@ export const useWeb3Auth = () => {
 
   useEffect(() => {
     init();
-  }, []);
+  }, [init]);
 
   const login = async () => {
     if (!web3auth) {
