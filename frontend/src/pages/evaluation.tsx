@@ -16,19 +16,25 @@ import { AbiItem } from "web3-utils";
 
 export default function Evaluation() {
   const [ value, setValue ] = useState(0);
-  const [ contract, setContract] = useState<Web3 | null>(null);
-  const [ accounts, setAccounts ] = useState(null);
+  const [ contract, setContract] = useState<any>(null);
+  const [ accounts, setAccounts ] = useState<any>(null);
+  const [ evalAddresses , setEvalAddresses ] = useState([]);
   const router = useRouter();
   useEffect(() => {
     const init = async() => {
       try {
         const web3 = new Web3(new Web3.providers.HttpProvider(`http://127.0.0.1:8545`));
         const ContractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
-        const ABI = EvalAddressContract.abi;
+        const ABI = EvalAddressContract.abi as any as AbiItem;
         const contract = new web3.eth.Contract(ABI, ContractAddress);
         const accounts = await web3.eth.getAccounts();
         setContract(contract);
         setAccounts(accounts[0]);
+
+        const evalAddresses = await contract.methods.myEvalAddresses(accounts[0]).call();
+        console.log('myEvalAddresses');
+        console.log(evalAddresses[0].name);
+        setEvalAddresses(evalAddresses);
       } catch (error) {
         alert(
           `Failed to load web3, accounts, or contract. Check console for details.`,
@@ -90,7 +96,9 @@ export default function Evaluation() {
             </Tabs>
           </Box>
           <TabPanel value={value} index={0}>
-            <EvaluationReport/>
+            <EvaluationReport
+              evalAddresses={evalAddresses}
+            />
           </TabPanel>
           <TabPanel value={value} index={1}>
             Item Two

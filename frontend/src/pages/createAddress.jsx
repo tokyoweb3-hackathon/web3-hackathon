@@ -6,11 +6,10 @@ import {
   TextField,
   Typography,
   Paper,
-  List
 } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { Layout } from "../../layout/Layout";
-import PropTypes from "prop-types";
 import Downshift from "downshift";
 import EvalAddressContract  from '../../../artifacts/contracts/EvalAddressContract.sol/EvalAddressContract.json' assert { type: "json" };
 import Web3 from "web3";
@@ -19,8 +18,10 @@ export default function createAddress({ ...props }) {
   const { placeholder, tags, ...other } = props;
   const [inputValue, setInputValue] = useState("");
   const [selectedItem, setSelectedItem] = useState([]);
-  const [ contract, setContract] = useState(null)
-  const [ accounts, setAccounts ] = useState(null)
+  const [ contract, setContract] = useState(null);
+  const [ accounts, setAccounts ] = useState(null);
+  const router = useRouter();
+  const path = '/evaluation';
   useEffect(() => {
     setSelectedItem(tags);
   }, [tags]);
@@ -32,6 +33,7 @@ export default function createAddress({ ...props }) {
         const ABI = EvalAddressContract.abi;
         const contract = new web3.eth.Contract(ABI, ContractAddress);
         const accounts = await web3.eth.getAccounts();
+        console.log(accounts[0]);
         setContract(contract);
         setAccounts(accounts[0]);
       } catch (error) {
@@ -50,8 +52,8 @@ export default function createAddress({ ...props }) {
       await contract.methods.createEvalAddress(
         accounts,
         selectedItem
-      )
-      alert('評価項目の作成に成功しました');
+      ).send({ from: accounts });
+      router.push(path);
     } catch(error) {
       console.log(error);
     }
