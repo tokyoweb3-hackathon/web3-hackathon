@@ -1,8 +1,8 @@
 import { Avatar, Box, Button, Container, Stack } from "@mui/material";
-// import { useWeb3Auth } from "../hooks/web3Auth/useWeb3Auth";
+import { useWeb3Auth } from "../hooks/web3Auth/useWeb3Auth";
 
 export default function Login() {
-  // const { login } = useWeb3Auth();
+  const { login } = useWeb3Auth();
 
   return (
     <Container component="main" maxWidth="xs" sx={{ p: 4 }}>
@@ -26,7 +26,7 @@ export default function Login() {
           type="submit"
           fullWidth
           variant="contained"
-          onClick={() => {}}
+          onClick={login}
           sx={{ pt: 2, pb: 2 }}
         >
           ログイン
