@@ -12,16 +12,50 @@ import React, { useState, useEffect } from "react";
 import { Layout } from "../../layout/Layout";
 import PropTypes from "prop-types";
 import Downshift from "downshift";
+import EvalAddressContract  from '../../../artifacts/contracts/EvalAddressContract.sol/EvalAddressContract.json' assert { type: "json" };
+import Web3 from "web3";
 
-
-export default function TagsInput({ ...props }) {
+export default function createAddress({ ...props }) {
   const { placeholder, tags, ...other } = props;
-  const [inputValue, setInputValue] = React.useState("");
-  const [selectedItem, setSelectedItem] = React.useState([]);
+  const [inputValue, setInputValue] = useState("");
+  const [selectedItem, setSelectedItem] = useState([]);
+  const [ contract, setContract] = useState(null)
+  const [ accounts, setAccounts ] = useState(null)
   useEffect(() => {
     setSelectedItem(tags);
   }, [tags]);
+  useEffect(() => {
+    const init = async() => {
+      try {
+        const web3 = new Web3(new Web3.providers.HttpProvider(`http://127.0.0.1:8545`));
+        const ContractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+        const ABI = EvalAddressContract.abi;
+        const contract = new web3.eth.Contract(ABI, ContractAddress);
+        const accounts = await web3.eth.getAccounts();
+        setContract(contract);
+        setAccounts(accounts[0]);
+      } catch (error) {
+        alert(
+          `Failed to load web3, accounts, or contract. Check console for details.`,
+        );
+        console.error(error);
+      }
+    }
+    init();
+  }, []);
 
+  const handleSubmit = async () => {
+    console.log(selectedItem);
+    try {
+      await contract.methods.createEvalAddress(
+        accounts,
+        selectedItem
+      )
+      alert('評価項目の作成に成功しました');
+    } catch(error) {
+      console.log(error);
+    }
+  }
   function handleKeyDown(event) {
     if (event.key === "Enter") {
       const newSelectedItem = [...selectedItem];
@@ -134,6 +168,7 @@ export default function TagsInput({ ...props }) {
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center' }}>
             <Button
+              onClick={ handleSubmit }
               type="button"
               variant="contained"
               color="primary"
@@ -148,7 +183,7 @@ export default function TagsInput({ ...props }) {
     </React.Fragment>
   );
 }
-TagsInput.defaultProps = {
+createAddress.defaultProps = {
   tags: []
 };
 
